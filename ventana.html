@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ventana del Juego</title>
+</head>
+<body>
+    <h2>Escribe ; para cerrar todas las ventanas</h2>
+
+    <input id="input" type="text" autofocus>
+
+    <script>
+        const input = document.getElementById("input");
+
+        input.addEventListener("input", () => {
+            if (input.value === ";") {
+                if (window.opener && !window.opener.closed) {
+                    window.opener.cerrarVentanas();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

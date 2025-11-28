@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Juego de Ventanas</title>
+</head>
+<body>
+    <button onclick="iniciarJuego()">Iniciar juego</button>
+
+    <script>
+        let ventanas = [];
+
+        function iniciarJuego() {
+            // Abrimos 3 ventanas nuevas
+            ventanas.push(window.open("ventana.html", "_blank", "width=400,height=300"));
+            ventanas.push(window.open("ventana.html", "_blank", "width=400,height=300"));
+            ventanas.push(window.open("ventana.html", "_blank", "width=400,height=300"));
+        }
+
+        // Esta función la llamarán las ventanas cuando detecten el ";"
+        function cerrarVentanas() {
+            for (let v of ventanas) {
+                if (v && !v.closed) v.close();
+            }
+            ventanas = [];
+        }
+    </script>
+</body>
+</html>
